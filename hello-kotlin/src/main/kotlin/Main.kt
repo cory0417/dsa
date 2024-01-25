@@ -1,12 +1,34 @@
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+// Here's the original Python class method that determines if the ant object is within the allowed bounds.
+// self.position is a tuple of two integers that represent x, y coordinates.
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+//def in_grid(self) -> bool:
+//    """
+//    Evaluate if the ant is within the grid.
+//
+//    Args:
+//        None.
+//
+//    Returns:
+//        bool: A boolean that represents if the ant is in the grid or not.
+//          It's `True` if the ant is in the grid and `False` otherwise.
+//    """
+//    # Check if the position is between 0 and 255
+//    in_bound = (self.position >= 0) & (self.position <= 255)
+//
+//    # return `False` if any of them are out of bounds
+//    return in_bound.all()
+
+// Here's my Kotlin translation:
+fun inGrid(x: Int, y: Int): Boolean {
+    // Check if the position is between 0 and 255
+    val inBound = (x in 0..255) && (y in 0..255)
+    // return `false` if any of them are out of bounds
+    return inBound
 }
+
+fun main() {
+    val x = 50
+    val y = 50
+    println("Ant in bound: ${inGrid(x, y)}")
+}
+
