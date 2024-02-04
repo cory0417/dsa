@@ -43,8 +43,9 @@ class DLLStack<T> : Stack<T> {
     override fun isEmpty(): Boolean {
         return doublyLinkedList.isEmpty()
     }
+
     override fun toString(): String {
-        var current = doublyLinkedList.tail // Assuming head is accessible; adjust based on your implementation
+        var current = doublyLinkedList.tail
         val items = mutableListOf<T>()
         while (current != null) {
             items.add(current.data)

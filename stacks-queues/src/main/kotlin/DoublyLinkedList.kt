@@ -19,7 +19,7 @@ class DoublyLinkedList<T> {
     /**
      * Adds the element [data] to the back of the linked list.
      */
-    fun pushBack(data: T){
+    fun pushBack(data: T) {
         val node = ListNode<T>(data, null, tail)
 
         if (tail != null) {
@@ -30,44 +30,47 @@ class DoublyLinkedList<T> {
         tail = tail ?: node
         head = head ?: node
     }
+
     /**
      * Removes an element from the front of the list. If the list is empty, it is unchanged.
      * @return the value at the front of the list or nil if none exists
      */
-    fun popFront(): T?{
+    fun popFront(): T? {
         val data = head?.data
         head = head?.prev
         return data
     }
+
     /**
      * Removes an element from the back of the list. If the list is empty, it is unchanged.
      * @return the value at the back of the list or nil if none exists
      */
-    fun popBack(): T?{
+    fun popBack(): T? {
         val data = tail?.data
         tail = tail?.next
         return data
     }
+
     /**
      * @return the value at the front of the list or nil if none exists
      */
-    fun peekFront(): T?{
+    fun peekFront(): T? {
         return head?.data
     }
 
     /**
      * @return the value at the back of the list or nil if none exists
      */
-    fun peekBack(): T?{
+    fun peekBack(): T? {
         return tail?.data
     }
 
     /**
      * @return true if the list is empty and false otherwise
      */
-    fun isEmpty(): Boolean{
+    fun isEmpty(): Boolean {
         return (head == null || tail == null)
     }
 }
 
-class ListNode<T> (val data: T, var prev: ListNode<T>?, var next: ListNode<T>?)
+class ListNode<T>(val data: T, var prev: ListNode<T>?, var next: ListNode<T>?)

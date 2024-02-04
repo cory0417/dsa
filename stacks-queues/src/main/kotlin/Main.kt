@@ -109,5 +109,4 @@ fun main() {
     val copy = copyStack(original)
     println("Original: $original")
     println("Copy: $copy")
-
 }
