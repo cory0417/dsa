@@ -1,5 +1,7 @@
 package org.example
 
+import java.io.File
+
 /**
  * Find the shortest path between two vertices in a graph using Dijkstra's algorithm.
  *
@@ -29,7 +31,9 @@ package org.example
  *  @return A pair containing the shortest path and the distance of the path.
  *  If no path is found, return null.
  */
-fun <T> shortestDijkstra(graph: MyGraph<T>, from: T, to: T): Pair<List<T>, Double>? {
+fun <T> shortestDijkstra(
+    graph: MyGraph<T>, from: T, to: T
+): Pair<List<T>, Double>? {
     val prev = mutableMapOf<T, T?>()
     val dist = mutableMapOf<T, Double>()
     val vertices = graph.getVertices()
@@ -73,24 +77,41 @@ fun <T> shortestDijkstra(graph: MyGraph<T>, from: T, to: T): Pair<List<T>, Doubl
     return Pair(path.reversed(), dist[to]!!)
 }
 
+fun projEuler81(fileDir: String): Pair<List<String>, Double>? {
+    val lines = File(fileDir).readLines()
+    val matrix = Array(80) { DoubleArray(80) }
+    lines.forEachIndexed { rowIndex, line ->
+        line.split(",").mapIndexed { colIndex, value ->
+            matrix[rowIndex][colIndex] = value.toDouble()
+        }
+    }
+    // Check the matrix
+//    matrix.forEach { row ->
+//        println(row.joinToString(separator = " ", prefix = "[", postfix = "]"))
+//    }
+    val graph = MyGraph<String>()
+    for (i in 0 .. 78) {
+        for (j in 0 .. 78) {
+            graph.addEdge("($i, $j)", "(${i + 1}, $j)", matrix[i][j])
+            graph.addEdge("($i, $j)", "($i, ${j + 1})", matrix[i][j])
+        }
+    }
+    for (i in 0 .. 78) {
+        graph.addEdge("($i, 79)", "(${i+1}, 79)", matrix[i][79])
+    }
+    for (j in 0 .. 78) {
+        graph.addEdge("(79, $j)", "(79, ${j + 1})", matrix[79][j])
+    }
+
+    val dijkstra = shortestDijkstra(graph, "(0, 0)", "(79, 79)")
+    // Since the problem asks to include the cost of the end point, we add it
+    return dijkstra?.let { Pair(it.first, it.second + matrix[79][79]) }
+}
+
 fun main() {
-    val g = MyGraph<String>()
-    g.addEdge("a", "b", 0.5)
-    g.addEdge("a", "c", 2.5)
-    g.addEdge("b", "c", 2.5)
-    g.addEdge("b", "e", 5.0)
-    g.addEdge("c", "d", 0.5)
-    g.addEdge("c", "e", 3.0)
-    g.addEdge("d", "e", 0.5)
+    // Solution to Project Euler problem 81
+    // Confirmed by https://blog.dreamshire.com/project-euler-81-solution/
+    val x = projEuler81("0081_matrix.txt") // 427337.0
 
-    g.getVertices().forEach { println(it) }
-    g.getEdges("a").forEach(::println)
-    g.getEdges("b").forEach { println(it) }
-    g.getEdges("c").forEach { println(it) }
-
-    println(shortestDijkstra(g, "b", "e")) // ([b, c, d, e], 3.5)
-    println(shortestDijkstra(g, "a", "e")) // ([a, c, d, e], 3.5)
-    println(shortestDijkstra(g, "a", "d")) // ([a, c, d], 3.0)
-    println(shortestDijkstra(g, "a", "b")) // ([a, b], 0.5)
-    println(shortestDijkstra(g, "b", "a")) // null
+    println(x)
 }
