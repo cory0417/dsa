@@ -48,7 +48,7 @@ class MinHeap<T> {
     }
 
     /**
-     * Get the element with the smallest [heapNumber] from the heap.
+     * Get the element with the smallest heap number from the heap.
      */
     fun getMin(): T? {
         return dequeue()?.data
