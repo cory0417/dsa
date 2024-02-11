@@ -3,7 +3,7 @@ package org.example
 import java.io.File
 
 /**
- * Find the shortest path between two vertices in a graph using Dijkstra's algorithm.
+ * Find the shortest path between two vertices using Dijkstra's algorithm.
  *
  * This algorithm uses a priority queue to keep track of the vertices to
  * visit next. The priority queue is implemented as a min heap.
@@ -77,6 +77,19 @@ fun <T> shortestDijkstra(
     return Pair(path.reversed(), dist[to]!!)
 }
 
+/**
+ * Project Euler problem 81: Path sum: two ways
+ *
+ * From a given text file containing 80x80 matrix, the goal is to find the
+ * minimal path sum from the top-left to the bottom-right by only moving
+ * right and down. The solution uses Dijkstra's algorithm to find the
+ * shortest path in a graph. A caveat is that the result must include the
+ * last vertex's cost, although it's not included in the path as an edge.
+ *
+ * @param fileDir The directory of the file containing the matrix.
+ * @return A pair containing the path and the minimal path sum. If no path,
+ * return null.
+ */
 fun projEuler81(fileDir: String): Pair<List<String>, Double>? {
     val lines = File(fileDir).readLines()
     val matrix = Array(80) { DoubleArray(80) }
@@ -90,16 +103,16 @@ fun projEuler81(fileDir: String): Pair<List<String>, Double>? {
 //        println(row.joinToString(separator = " ", prefix = "[", postfix = "]"))
 //    }
     val graph = MyGraph<String>()
-    for (i in 0 .. 78) {
-        for (j in 0 .. 78) {
+    for (i in 0..78) {
+        for (j in 0..78) {
             graph.addEdge("($i, $j)", "(${i + 1}, $j)", matrix[i][j])
             graph.addEdge("($i, $j)", "($i, ${j + 1})", matrix[i][j])
         }
     }
-    for (i in 0 .. 78) {
-        graph.addEdge("($i, 79)", "(${i+1}, 79)", matrix[i][79])
+    for (i in 0..78) {
+        graph.addEdge("($i, 79)", "(${i + 1}, 79)", matrix[i][79])
     }
-    for (j in 0 .. 78) {
+    for (j in 0..78) {
         graph.addEdge("(79, $j)", "(79, ${j + 1})", matrix[79][j])
     }
 
@@ -111,7 +124,6 @@ fun projEuler81(fileDir: String): Pair<List<String>, Double>? {
 fun main() {
     // Solution to Project Euler problem 81
     // Confirmed by https://blog.dreamshire.com/project-euler-81-solution/
-    val x = projEuler81("0081_matrix.txt") // 427337.0
-
-    println(x)
+    val result = projEuler81("0081_matrix.txt") // 427337.0
+    println(result?.second)
 }
