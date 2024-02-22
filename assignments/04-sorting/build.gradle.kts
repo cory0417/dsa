@@ -16,6 +16,12 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.register<JavaExec>("run") {
+    classpath = project.sourceSets.getByName("main").runtimeClasspath
+    mainClass.set("MainKt")
+}
+
 kotlin {
     jvmToolchain(11)
 }
