@@ -2,7 +2,6 @@ fun mergeSort(intList: MutableList<Int>): MutableList<Int> {
     // Use recursion to divide and conquer
     // Chop the list in two, until there is one or fewer elements in the list
     // Merge the adjacent lists while sorting
-    //
 
     if (intList.count() <= 1) {
         return intList
