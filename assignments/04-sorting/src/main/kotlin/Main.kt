@@ -3,8 +3,7 @@ import kotlin.system.measureNanoTime
 
 fun main() {
     val sizes = listOf(
-        100, 200, 500, 1000, 2000, 5000, 10000, 20000,
-        50000, 100000
+        100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000
     )
     val results = mutableListOf<String>()
 
@@ -27,4 +26,8 @@ fun main() {
             )
         }"
     )
+
+    // Bonus: consecutive max sum finding
+    val list = listOf(1, 2, -10, 20, -1, 5)
+    print(findMax(list)) // should print 24
 }
