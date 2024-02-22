@@ -11,6 +11,7 @@ plt.plot(data['Size'], data['QuickSort'], label='QuickSort', marker='o')
 plt.plot(data['Size'], data['MergeSort'], label='MergeSort', marker='o')
 plt.plot(data['Size'], data['InsertionSort'], label='InsertionSort', marker='o')
 plt.plot(data['Size'], data['SelectionSort'], label='SelectionSort', marker='o')
+plt.plot(data['Size'], data['MinFinderSort'], label='MinFinderSort', marker='o')
 
 # Plotting nlogn and n^2 for comparison
 sizes = data['Size']

@@ -15,19 +15,25 @@ fun main() {
             measureNanoTime { insertionSort(list.toMutableList()) }
         val selectionSortTime =
             measureNanoTime { selectionSort(list.toMutableList()) }
+        val minFinderSortTime =
+            measureNanoTime { minFinder(list.toMutableList()) }
 
-        results.add("$size, $quickSortTime, $mergeSortTime, $insertionSortTime, $selectionSortTime")
+        results.add("$size, $quickSortTime, $mergeSortTime, " +
+                "$insertionSortTime, $selectionSortTime, $minFinderSortTime")
     }
 
     File("sort_results.csv").writeText(
-        "Size,QuickSort,MergeSort,InsertionSort,SelectionSort\n${
+        "Size,QuickSort,MergeSort,InsertionSort,SelectionSort,MinFinderSort\n${
             results.joinToString(
                 "\n"
             )
         }"
     )
-
-    // Bonus: consecutive max sum finding
-    val list = listOf(1, 2, -10, 20, -1, 5)
-    print(findMax(list)) // should print 24
+//
+//    // Bonus: consecutive max sum finding
+//    val list = listOf(1, 2, -10, 20, -1, 5)
+//    print(findMax(list)) // should print 24
+//    val list = List(1000) { (0..10000).random() }.toMutableList()
+//    val result = minFinder(list.toMutableList())
+//    println(result)
 }
