@@ -44,9 +44,10 @@ The results show runtimes in nanoseconds to sort lists of different sizes:
 
 <figure>
   <img src="https://raw.githubusercontent.com/cory0417/dsa/assignment-04/assignments/04-sorting/sort_performance.svg?sanitize=true" alt="runtime plot">
-  <figcaption>Nominal values for $n\log{n}$ and $n^2$ runtime algorithms have 
-been added to the plot for comparison.</figcaption>
 </figure>
+
+Nominal values for $n\log{n}$ and $n^2$ runtime algorithms have been added to
+the plot for comparison.
 
 ## Conclusions/Observations
 
