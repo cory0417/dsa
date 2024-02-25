@@ -19,9 +19,9 @@ nlogn = [size * np.log(size) for size in sizes]
 nsquared = [size ** 2 for size in sizes]
 
 
-plt.plot(sizes, nlogn, label='$n \log n$ (normalized)',
+plt.plot(sizes, nlogn, label='$n \log n$',
          linestyle='--', color='purple')
-plt.plot(sizes, nsquared, label='$n^2$ (normalized)',
+plt.plot(sizes, nsquared, label='$n^2$',
          linestyle='--', color='pink')
 
 plt.title('Sorting Algorithm Performance with $n \log n$ and $n^2$ Comparison')
@@ -30,6 +30,6 @@ plt.ylabel('Runtime')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.savefig('sort_performance.png')
+plt.savefig('sort_performance.svg')
 plt.show()
 
