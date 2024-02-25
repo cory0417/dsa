@@ -39,7 +39,8 @@ The results show runtimes in nanoseconds to sort lists of different sizes:
 | 50,000  | 21,515,000 | 197,699,666 | 2,001,218,958  | 2,182,408,583  | 2,360,330,291 |
 | 100,000 | 40,652,778 | 777,435,653 | 10,241,873,778 | 11,196,644,027 | 9,915,203,333 |
 
-![runtime_plot](sort_performance.svg)
+![runtime_plot](https://raw.githubusercontent.com/cory0417/dsa/assignment-04/assignments/04-sorting/sort_performance.svg?sanitize=true)
+<img src="https://raw.githubusercontent.com/cory0417/dsa/assignment-04/assignments/04-sorting/sort_performance.svg?sanitize=true">
 In the plot, I've added nominal values for $n\log{n}$ and $n^2$ runtime
 algorithm.
 
