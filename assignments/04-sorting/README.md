@@ -7,22 +7,23 @@ MergeSort, InsertionSort, SelectionSort), as well as a novel "MinFinder"
 algorithm by Rana et al. 2019, I conducted systematic tests across varying list
 sizes. Unsorted lists were generated randomly within a fixed range to ensure a
 uniform distribution of integers. The list sizes tested were 100, 200, 500,
-1000, 2000, 5000, 10000, 20000, 50000, and 100000 elements. A total of 3
-trials were conducted, after which the results were averaged for each list
-size and algorithm.
+1000, 2000, 5000, 10000, 20000, 50000, and 100000 elements. A total of 3 trials
+were conducted, after which the results were averaged for each list size and
+algorithm.
 
 ## MinFinder algorithm
 
 Before diving into the results, I want to first explain the MinFinder algorithm.
-The MinFinder algorithm identifies the smallest element within a list
-and moves it to the first position, shifting the other elements rightward. It
-repeats this process for the second-smallest element and continues until all
-elements are correctly placed. This in-place, stable sorting algorithm optimizes
-memory usage and maintains the original relative order of equal elements without
-requiring additional space. However, the time complexity of the algorithm is 
-$n^2$. 
+The MinFinder algorithm identifies the smallest element within a list and moves
+it to the first position, shifting the other elements rightward. It repeats this
+process for the second-smallest element and continues until all elements are
+correctly placed. This in-place, stable sorting algorithm optimizes memory usage
+and maintains the original relative order of equal elements without requiring
+additional space. However, the time complexity of the algorithm is $n^2$.
 
-## Results Summary
+## Results
+
+### Results table
 
 The results show runtimes in nanoseconds to sort lists of different sizes:
 
@@ -39,17 +40,18 @@ The results show runtimes in nanoseconds to sort lists of different sizes:
 | 50,000  | 21,515,000 | 197,699,666 | 2,001,218,958  | 2,182,408,583  | 2,360,330,291 |
 | 100,000 | 40,652,778 | 777,435,653 | 10,241,873,778 | 11,196,644,027 | 9,915,203,333 |
 
+### Results plot
+
 ![runtime_plot](https://raw.githubusercontent.com/cory0417/dsa/assignment-04/assignments/04-sorting/sort_performance.svg?sanitize=true)
-<img src="https://raw.githubusercontent.com/cory0417/dsa/assignment-04/assignments/04-sorting/sort_performance.svg?sanitize=true">
+
 In the plot, I've added nominal values for $n\log{n}$ and $n^2$ runtime
 algorithm.
 
 ## Conclusions/Observations
 
-- For **small to medium-sized lists** (up to 10,000 elements), all algorithms 
-  are quite similar in terms of their runtime. 
-- QuickSort is the **most efficient** on average in terms of the runtime, 
-  making it useful for very large lists. It has a runtime of $n \log{n}$
+- For **small to medium-sized lists** (up to 10,000 elements), all algorithms
+  are quite similar in terms of their runtime.
+- QuickSort is the **most efficient** on average in terms of the runtime, making
+  it useful for very large lists. It has a runtime of $n \log{n}$
 - MergeSort is the second most efficient on average.
-- SelectionSort, InsertionSort, and MinFinder all follow $n^2$ 
-  performance.
+- SelectionSort, InsertionSort, and MinFinder all follow $n^2$ performance.
