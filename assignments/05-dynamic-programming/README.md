@@ -7,9 +7,7 @@ method and the second is Strassen's algorithm, where it reduces the time
 complexity of the operation from $O(n^3)$ to around $O(n^{2.8})$. You can 
 check out the benchmark results by running `Main.kt` of the same directory.
 <figure>
-  <img src="https://raw.githubusercontent.
-com/cory0417/dsa/assignment-05/assignments/05-dynamic-programming
-/multiplication_benchmark.svg?sanitize=true" alt="benchmark plot">
+  <img src="https://raw.githubusercontent.com/cory0417/dsa/assignment-05/assignments/05-dynamic-programming/multiplication_benchmark.svg?sanitize=true" alt="benchmark plot">
 </figure>
 
 Although Strassen should be faster in theory, standard method is faster in 
