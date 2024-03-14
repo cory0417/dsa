@@ -1,3 +1,5 @@
+package org.example
+
 import kotlin.math.atan2
 import kotlin.math.hypot
 

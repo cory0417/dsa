@@ -1,4 +1,7 @@
+package org.example
+
 import kotlin.math.*
+import kotlin.reflect.typeOf
 
 fun fft(input: Array<Complex>): Array<Complex> {
     var n = input.size
@@ -63,7 +66,7 @@ fun applyLogTransform(input: Array<Array<Complex>>): Array<Array<Double>> {
 
 fun extractPhase(fftResult: Array<Array<Complex>>): Array<Array<Double>> {
     return fftResult.map { row ->
-        row.map { it.phase()
+        row.map {ln(1 + it.phase())
         }.toTypedArray()
     }.toTypedArray()
 }
