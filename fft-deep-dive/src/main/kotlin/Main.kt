@@ -7,7 +7,6 @@ fun main() {
     val logF = applyLogTransform(fftShifted)
     val fileName = "data/result_mag.png"
     saveGrayscaleImage(logF, fileName)
-//    fftResult[0].map { print("${it.abs()}, ") }
 
     val phaseData = extractPhase(fftResult)
     saveGrayscaleImage(phaseData, "data/result_phase.png")
