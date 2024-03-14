@@ -50,7 +50,7 @@ of each frequency.
 
 ## Example of 2D FFT
 
-![paul](data/paul.tiff)
+![paul](data/paul.png)
 
 |             Magnitude              |                 Phase                  |
 |:----------------------------------:|:--------------------------------------:|
